@@ -1,0 +1,69 @@
+// 색상변수
+$m-color: rgb(126, 83, 244);
+$hv-color: rgb(40, 13, 114);
+$bdr-color: rgb(194, 194, 194);
+$t-color: #666;
+$bg-color: #fcfcfc;
+
+// 규격변수
+$fs-large: 32px;
+$fs-medium: 24px;
+$fs-small: 16px;
+$bdr-radius: 5px;
+$pd-small: 10px;
+$pd-default: 20px;
+$mg-default: 20px;
+
+//shadow
+$box-shadow: 0 0 10px rgba(0, 0, 0, 0.171);
+
+.game-container {
+    text-align: center;
+    background-color: $bg-color;
+    padding: $pd-default;
+    box-shadow: $box-shadow;
+    border-radius: $bdr-radius;
+    h1 {
+        font-size: $fs-medium;
+        color: $m-color;
+    }
+    .current-word {
+        font-size: $fs-large;
+        font-weight: bold;
+        color: $t-color;
+        padding: $pd-small 0;
+    }
+    input {
+        width: 200px;
+        padding: $pd-small;
+        border: 2px solid $bdr-color;
+        border-radius: $bdr-radius;
+        transition: border .3s;
+        outline: none;
+        &:focus {
+            border-color: $m-color;
+        }
+    }
+    button {
+        margin-left: 10px;
+        border: none;
+        padding: $pd-small $pd-small*2;
+        border-radius: $bdr-radius;
+        color: #ffffff;
+        background-color: $m-color;
+        transition: background .3s;
+        cursor: pointer;
+        font-size: $fs-small;
+        &:hover {
+            background-color: $hv-color;
+        }
+    }
+
+    .message {
+        margin-top: $mg-default;
+        font-size: $fs-small;
+        color: $t-color;
+
+    }
+
+}
