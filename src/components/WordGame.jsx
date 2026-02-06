@@ -17,7 +17,8 @@ const WordGame = ({startWord}) => {
     }
 
     const checkWord=()=>{
-        const trimmdWord = userInput.trim()
+        const currentInputValue = InputRef.current.value;
+        const trimmdWord = currentInputValue.trim()
 
         if (!trimmdWord) {
             setMessage("단어를 입력하세요")
@@ -33,8 +34,8 @@ const WordGame = ({startWord}) => {
         }else{
             setMessage("성공! 다음 단어를 입력하세요!")
             setWord(trimmdWord)
+            setUserInput("")
         }
-        setUserInput("")
     }
 
     const handleSubmit = (e) => {
