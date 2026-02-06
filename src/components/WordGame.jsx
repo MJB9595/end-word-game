@@ -17,8 +17,7 @@ const WordGame = ({startWord}) => {
     }
 
     const checkWord=()=>{
-        const currentInputValue = InputRef.current.value;
-        const trimmdWord = currentInputValue.trim()
+        const trimmdWord = userInput.trim()
 
         if (!trimmdWord) {
             setMessage("단어를 입력하세요")
@@ -34,14 +33,9 @@ const WordGame = ({startWord}) => {
         }else{
             setMessage("성공! 다음 단어를 입력하세요!")
             setWord(trimmdWord)
-            setUserInput("")
         }
+        setUserInput("")
     }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        checkWord();
-    };
     return (
         <div className='game-container'>
             <h1>끝말잇기</h1>
@@ -49,15 +43,14 @@ const WordGame = ({startWord}) => {
                 {word}
             </p>
 
-            <form onSubmit={handleSubmit}>
             <input 
             type="text" 
             ref={InputRef}
             onChange={handleChange}
+            onKeyUp={(e)=>e.key==='Enter' && checkWord()}
             value={userInput}/>
-            <button onClick={checkWord}>확인</button>
-            </form>
 
+            <button onClick={checkWord}>확인</button>
             <p className='message'>{message}</p>
         </div>
     )
