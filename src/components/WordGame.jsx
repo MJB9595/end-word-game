@@ -36,6 +36,14 @@ const WordGame = ({startWord}) => {
         }
         setUserInput("")
     }
+
+    const handleKeyDown = (e) => {
+        if (e.nativeEvent.isComposing) return;
+
+        if (e.key === 'Enter') {
+            checkWord();
+        }
+    }
     return (
         <div className='game-container'>
             <h1>끝말잇기</h1>
@@ -47,7 +55,7 @@ const WordGame = ({startWord}) => {
             type="text" 
             ref={InputRef}
             onChange={handleChange}
-            onKeyUp={(e)=>e.key==='Enter' && checkWord()}
+            onKeyDown={handleKeyDown}
             value={userInput}/>
 
             <button onClick={checkWord}>확인</button>
